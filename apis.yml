@@ -1,0 +1,137 @@
+aid: propertymark
+url: https://raw.githubusercontent.com/api-evangelist/propertymark/refs/heads/main/apis.yml
+name: Propertymark
+kind: company
+description: >-
+  Propertymark is the United Kingdom's largest professional body for property agents, formed in
+  2017 from the merger of the National Association of Estate Agents (NAEA), the Association of
+  Residential Letting Agents (ARLA), the Institute of Commercial and Business Agents (ICBA) and
+  the National Association of Valuers and Auctioneers (NAVA), and representing "over 19,000
+  members" across residential sales, lettings, commercial property, inventories, auctions and
+  valuation. Its home market is the United Kingdom - England, Scotland, Wales, Northern Ireland
+  and the Channel Islands. In the property value chain it sits on the agent-accreditation and
+  consumer-protection side, not the listings side: it publishes the Conduct and Membership Rules,
+  operates a government-approved Client Money Protection scheme, runs Propertymark Qualifications
+  as the sector's specialist awarding organisation, and lobbies government on estate and letting
+  agency regulation. Its API posture is the flat, honest zero. There is no developer portal, no
+  documented API, no SDK, no webhooks and no published machine-readable contract of any kind:
+  developer.propertymark.co.uk, developers.propertymark.co.uk, api.propertymark.co.uk,
+  data.propertymark.co.uk and standards.propertymark.co.uk all fail DNS resolution, and
+  /openapi.json, /swagger.json, /api-docs, /api, /developers, /docs, /$metadata and /odata all
+  return honest HTTP 404s from www.propertymark.co.uk. RESO is entirely absent - the site's own
+  search returns "result: 0 of 0" for both "RESO" and "OData" - because the United Kingdom has no
+  MLS and therefore no listing-data certification layer to be certified against; UK residential
+  listings reach consumers through the Rightmove/Zoopla portal duopoly via agency CRM software,
+  several of whose vendors (Reapit, Street, MRI Software, Dezrez, AgentOS, Coadjute, and Rightmove
+  itself) appear in Propertymark's own Industry Supplier directory. What Propertymark does publish
+  freely is its rulebook: the Propertymark Conduct and Membership Rules PDF downloads anonymously
+  with no login and no EULA. Its only machine-readable surface is undocumented - an internal
+  Preside CMS JSON endpoint behind the public Find an Expert member directory - and its member
+  area is SAML-gated, returning HTTP 401. Genuinely open UK property data comes from HM Land
+  Registry and Ordnance Survey, not from the agents' professional body.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/groq.png
+tags:
+- Real Estate
+- United Kingdom
+- Industry Body
+- Estate Agents
+- Rentals
+- Property Management
+- Standards
+- Certification
+- Client Money Protection
+- Commercial Real Estate
+- Valuation
+- PropTech
+created: '2026-07-26'
+modified: '2026-07-26'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.propertymark.co.uk/
+- type: About
+  url: https://www.propertymark.co.uk/about-us.html
+  name: About Propertymark - formed 2017 from NAEA, ARLA, ICBA and NAVA; over 19,000 members
+- type: Standards
+  url: https://www.propertymark.co.uk/professional-standards.html
+  name: Propertymark Professional Standards
+- type: Standards
+  url: https://www.propertymark.co.uk/professional-standards/rules.html
+  name: Propertymark rules and obligations for members
+- type: Rules
+  url: https://www.propertymark.co.uk/asset/1B740FBB%2D8CC0%2D4ED4%2D8A5BD9B5D006D765/
+  name: >-
+    Propertymark Conduct and Membership Rules (PDF, 37 pages, 672,154 bytes) - downloaded
+    anonymously with HTTP 200 on 2026-07-26, no login and no EULA
+- type: Certification
+  url: https://www.propertymark.co.uk/professional-standards/rules/cmp.html
+  name: Client Money Protection (CMP) scheme rules
+- type: Certification
+  url: https://www.propertymark.co.uk/professional-standards/cmp-applications.html
+  name: Client Money Protection scheme applications
+- type: Directory
+  url: https://www.propertymark.co.uk/find-an-expert.html
+  name: >-
+    Find an Expert - public directory of Propertymark member agent branches. No documented API;
+    the page is backed by an undocumented Preside CMS JSON endpoint (see review.yml)
+- type: Partners
+  url: https://www.propertymark.co.uk/membership/industry-suppliers.html
+  name: >-
+    Industry Suppliers - 42 listed supplier companies including Reapit, Street, MRI Software,
+    Dezrez, AgentOS, Coadjute and Rightmove; the only published technology route into Propertymark
+- type: Membership
+  url: https://www.propertymark.co.uk/membership.html
+- type: Signup
+  url: https://www.propertymark.co.uk/membership/join.html
+  name: Join Propertymark - membership application for agents, not a developer signup
+- type: Login
+  url: https://www.propertymark.co.uk/login.html
+  name: Member login; /members.html returns HTTP 401 anonymously, SAML SSO error page at /samlssobadrequest.html
+- type: Education
+  url: https://www.propertymark.co.uk/pmq.html
+  name: Propertymark Qualifications - the sector's specialist awarding organisation
+- type: Portal
+  url: https://learnerportal.propertymark.co.uk/
+  name: >-
+    Propertymark Learning Learner Portal - a React SPA on an Nhost/Hasura stack; its AWS API
+    Gateway backend returns HTTP 403 "Missing Authentication Token" anonymously
+- type: Complaints
+  url: https://www.propertymark.co.uk/professional-standards/complaints.html
+- type: Policy
+  url: https://www.propertymark.co.uk/policy.html
+  name: Propertymark policy and campaigns across England, Scotland, Wales, Northern Ireland and the Channel Islands
+- type: NewsAndReports
+  url: https://www.propertymark.co.uk/news-reports.html
+- type: Referrals
+  url: https://www.propertymark.co.uk/advantage/connect.html
+  name: >-
+    Connect, powered by Propertymark - agent-to-agent lead referral platform run by Propertymark
+    Connect Ltd, "supported by REACH, the growth accelerator programme of Second Century Ventures,
+    a global technology fund backed by the National Association of REALTORS"
+- type: Jobs
+  url: https://jobs.propertymark.co.uk/
+- type: SecurityTxt
+  url: https://www.propertymark.co.uk/.well-known/security.txt
+  name: security.txt pointing at the Pixl8 vulnerability disclosure policy (Pixl8 builds the Preside CMS site)
+- type: VulnerabilityDisclosure
+  url: https://pixl8.com/en/vulnerability-disclosure-policy.html
+  name: Vulnerability disclosure policy referenced by Propertymark's security.txt
+- type: Sitemap
+  url: https://www.propertymark.co.uk/sitemap.xml
+  name: 261 URLs, HTTP 200
+- type: Robots
+  url: https://www.propertymark.co.uk/robots.txt
+- type: Privacy
+  url: https://www.propertymark.co.uk/privacy-policy.html
+- type: Contact
+  url: https://www.propertymark.co.uk/contact.html
+- type: LinkedIn
+  url: https://www.linkedin.com/company/propertymark/
+- type: Facebook
+  url: https://www.facebook.com/PropertymarkUK/
+- type: Instagram
+  url: https://www.instagram.com/propertymarkuk
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

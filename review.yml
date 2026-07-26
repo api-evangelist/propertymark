@@ -1,0 +1,584 @@
+aid: propertymark
+name: Propertymark
+review:
+  question: >-
+    Does Propertymark, the United Kingdom's professional body for estate and letting agents,
+    publish a reachable developer surface, and what does the RESO question mean in a market
+    that has no MLS?
+  answer: >-
+    No, and RESO means nothing here. Propertymark publishes no API, no developer portal, no SDK,
+    no webhooks and no machine-readable contract of any kind. Every developer-shaped hostname
+    fails DNS resolution and every developer-shaped path returns an honest HTTP 404. RESO is not
+    "certified but unreachable" at Propertymark - it is entirely absent, because the United
+    Kingdom has no MLS and therefore no listing-data certification layer for a professional body
+    to certify against. Propertymark's site search returns "result: 0 of 0" for both "RESO" and
+    "OData". What Propertymark does publish freely is its rulebook: the Conduct and Membership
+    Rules PDF downloads anonymously, with no login and no EULA. Its only machine-readable surface
+    is an undocumented Preside CMS JSON endpoint behind the public Find an Expert directory, which
+    is deliberately not listed as an API.
+  date: '2026-07-26'
+  reviewer: API Evangelist
+  tier: industry-body
+  homeMarket: United Kingdom
+
+resoPosture:
+  summary: >-
+    No RESO reference found anywhere in the Propertymark estate. RESO is a North American
+    construct tied to NAR-affiliated MLSs; the United Kingdom has no MLS, so Propertymark is
+    neither RESO-certified nor a candidate for certification. This is absence, not
+    unreachability - the "certified but not reachable" pattern does not apply because there is no
+    listing-data certification layer in this market at all.
+  resoCertified: false
+  resoCertifiedRationale: >-
+    Propertymark does not implement, reference, endorse or mention the RESO Data Dictionary or
+    the RESO Web API. It is an agent-accreditation and consumer-protection body: it accredits
+    firms, enforces conduct rules, operates a Client Money Protection scheme and awards
+    qualifications. It holds no listing data, operates no OData service and runs no API.
+  evidence:
+    siteSearch: >-
+      Propertymark's own site search was queried anonymously on 2026-07-26.
+      https://www.propertymark.co.uk/search.html?searchQuery=RESO returned HTTP 200 with the
+      result counter reading "result: 0 of 0".
+      https://www.propertymark.co.uk/search.html?searchQuery=OData returned HTTP 200 with
+      "result: 0 of 0". By contrast searchQuery=API returned "results: 9 of 9", all of which are
+      unrelated - HM Land Registry news items, Renters' Rights Act commentary, and three Industry
+      Supplier pages (PropAlt, Inventory Base) whose own products mention APIs. None is a
+      Propertymark API.
+    webApiCertification: >-
+      None. Propertymark operates no OData service and publishes no RESO Web API endpoint.
+    dataDictionaryCertification: >-
+      None. No RESO Data Dictionary version (1.7, 2.0, 2.1) is referenced anywhere.
+    odataMetadata: >-
+      No $metadata document exists. https://www.propertymark.co.uk/$metadata returned HTTP 404
+      (63,735 bytes, the site's real 404 page) and https://www.propertymark.co.uk/odata returned
+      HTTP 404. There is no OData service document and no OData route on any resolving
+      Propertymark host.
+    universalPropertyIdentifier: >-
+      No UPI. Propertymark identifies member firms, not properties - the Find an Expert directory
+      keys records on internal GUIDs (ID, PARENT_ORGANISATION, PROPERTY_BADGE, COMPANY_SERVICE)
+      plus a SLUG. UK property identity is carried by HM Land Registry title numbers and Ordnance
+      Survey UPRN/TOID, neither of which is a Propertymark artifact.
+    certificationDirectoryListing: >-
+      Not listed. https://www.reso.org/certificates/ was fetched anonymously on 2026-07-26 (HTTP
+      200, 51,430 bytes); a case-insensitive search of the returned HTML found zero occurrences of
+      "Propertymark" and zero of "United Kingdom". Note that the RESO directory table is partly
+      client-rendered, so this negative corroborates rather than singly proves the structural
+      fact: RESO certifies MLSs and North American data providers, and no UK professional body
+      appears in it.
+  crossMarketFootnote: >-
+    The one genuine RESO-world connection is commercial, not technical. Propertymark Connect Ltd,
+    the group's agent-to-agent lead referral platform, states verbatim on
+    https://www.propertymark.co.uk/advantage/connect.html that it "is supported by REACH, the
+    growth accelerator programme of Second Century Ventures, a global technology fund backed by
+    the National Association of REALTORS". NAR's venture arm therefore backs a Propertymark
+    subsidiary - while RESO, NAR's standards arm, has no presence in this market whatsoever.
+  whatPropertymarkStandardisesInstead: >-
+    Propertymark standardises AGENTS, not DATA. It publishes the Conduct and Membership Rules,
+    operates a government-approved Client Money Protection scheme with its own scheme rules and
+    applications process, requires Client Account Reporting, an Annual Company Form, independent
+    redress scheme membership, ICO registration, Money Laundering Regulations compliance and
+    Professional Indemnity Insurance, and runs Propertymark Qualifications as the sector's
+    specialist awarding organisation. None of these produce a machine-readable artifact.
+
+standardsPublishing:
+  freelyDownloadable: true
+  detail: >-
+    The Propertymark Conduct and Membership Rules are a genuinely free, anonymous download. The
+    link on https://www.propertymark.co.uk/professional-standards/rules.html resolves through
+    https://www.propertymark.co.uk/asset/1B740FBB-8CC0-4ED4-8A5BD9B5D006D765/ to
+    https://www.propertymark.co.uk/static/1b740fbb-8cc0-4ed4-8a5bd9b5d006d765/a4be4534-9f33-4007-b8a32b28e344bdbb/propertymark-conduct-and-membership-rules.pdf
+    and returned HTTP 200, application/pdf, 672,154 bytes, PDF 1.7, 37 pages, with no account, no
+    login, no click-through and no licence agreement. A Complaint form PDF at
+    https://www.propertymark.co.uk/asset/CD230B24-CA41-4B08-AFB1A93934508B8C/ likewise returned
+    HTTP 200, application/pdf, 623,843 bytes.
+  memberGated: >-
+    The deeper operational material is member-gated. The Knowledge Hub (fact sheets, best
+    practice guides, AML training, the Renters' Rights Act toolkit, the Sales Protocol toolkit)
+    and the Business Hub (Terms of Business, templates, logo assets) sit under the member area;
+    https://www.propertymark.co.uk/members.html returned HTTP 401 to an anonymous request.
+  machineReadable: false
+  machineReadableNote: >-
+    Nothing Propertymark publishes as a standard is machine-readable. There is no JSON Schema, no
+    XSD, no data dictionary, no ontology and no exchange format - only PDFs and HTML guidance.
+    This is the sharpest contrast with RICS, the other UK body in this study, which publishes the
+    MIT-licensed RICS Data Standard as JSON Schema and XSD on GitHub.
+  certificationDirectory:
+    what: >-
+      Find an Expert is Propertymark's public certification directory in substance - it is how a
+      consumer verifies that a firm is an accredited Propertymark member and what badges and
+      services it holds.
+    url: https://www.propertymark.co.uk/find-an-expert.html
+    documentedAPI: false
+    note: See undocumentedInternalSurface below. There is no published API and no bulk download.
+
+accessGate:
+  classification: none-published
+  appliesTo: >-
+    Propertymark as a whole. There is no API to gate - no published API, no developer terms, no
+    application form, no key issuance and no partner API programme were found anywhere.
+  whatADeveloperMustSignOrJoin:
+    toReadTheRules: >-
+      Nothing. The Conduct and Membership Rules PDF is anonymously downloadable (HTTP 200).
+    toGetAnAPIKey: >-
+      There is no API key. No developer registration, application form, API terms page, pricing
+      page or key-issuance flow exists on any Propertymark property. This is why the gate is
+      classified none-published rather than application-approval or partner-only: there is
+      nothing published to apply for.
+    toBecomeAPropertymarkMember: >-
+      Agent membership via https://www.propertymark.co.uk/membership/join.html - open to
+      Principals, Partners and Directors (PPDs) and to employees, subject to qualification and
+      entry criteria, CPD obligations, Client Money Protection, Client Account Reporting,
+      independent redress scheme membership, ICO registration, AML compliance and Professional
+      Indemnity Insurance. This is an agent accreditation route, not a developer route, and it
+      confers no technical access.
+    toBecomeAnIndustrySupplier: >-
+      The nearest thing to a technology relationship is Industry Supplier membership
+      (https://www.propertymark.co.uk/membership/industry-suppliers.html), a paid commercial
+      listing that 42 companies currently hold - among them Reapit, Street, MRI Software, Dezrez,
+      AgentOS, Coadjute, Goodlord, Inventory Base, Inventory Hive, TDS and Rightmove. The page
+      publishes no application criteria, no fee schedule and no technical requirements, and
+      confers marketing placement rather than data access. It is a directory listing, not an
+      integration programme.
+  selfServeDeveloperPortal: false
+  developerPortalNote: >-
+    No developer portal exists in any form. developer.propertymark.co.uk,
+    developers.propertymark.co.uk, api.propertymark.co.uk, data.propertymark.co.uk,
+    standards.propertymark.co.uk, my.propertymark.co.uk, portal.propertymark.co.uk,
+    members.propertymark.co.uk, login.propertymark.co.uk and identity.propertymark.co.uk all fail
+    DNS resolution (curl exit 000). The only resolving subdomains are www, learnerportal, jobs,
+    docs (a locked S3/CloudFront bucket, HTTP 403 AccessDenied), pmqscheduling and practicetests
+    (also HTTP 403 AccessDenied). None is a developer surface.
+  honest404s: >-
+    Worth recording because it is the opposite of the RICS case: www.propertymark.co.uk is behind
+    Cloudflare but serves genuine, distinguishable responses. /openapi.json and /swagger.json
+    return a 68-byte HTTP 404; /api, /apis, /developers, /developer, /docs, /api-docs, /rest,
+    /graphql, /swagger, /$metadata and /odata return the site's real 63KB HTTP 404 page; and
+    /robots.txt, /sitemap.xml and /.well-known/security.txt return real HTTP 200 content. Every
+    negative recorded here is therefore a trustworthy negative, not a WAF artifact.
+
+openData:
+  hasOpenData: false
+  note: >-
+    Propertymark publishes no open, unlicensed, publicly callable dataset. Its market intelligence
+    - the Housing Insight Report and Propertymark's policy and consultation responses - is
+    published as PDFs and news pages under https://www.propertymark.co.uk/news-reports.html, not
+    as data endpoints. The member directory data behind Find an Expert is reachable only through
+    an undocumented CMS endpoint with no terms, no licence and no bulk access. The genuinely open
+    UK property data layer belongs to the public sector - HM Land Registry Price Paid Data under
+    the Open Government Licence and Ordnance Survey's open addressing and mapping products - and
+    none of it comes from the agents' professional body.
+
+authModel:
+  publicSurface:
+    scheme: none
+    detail: >-
+      There is no public API and therefore no public authentication scheme, no API key, no OAuth 2
+      client registration and no scopes. https://www.propertymark.co.uk/.well-known/openid-configuration
+      returned HTTP 404 - the site's real 404 page, not a discovery document. No OIDC discovery
+      document is served on any resolving Propertymark host.
+  memberArea:
+    scheme: SAML SSO into the Preside CMS member area
+    evidence: >-
+      https://www.propertymark.co.uk/samlssobadrequest.html is a real published page (HTTP 200,
+      51,066 bytes) listed in the sitemap - a SAML SSO error landing page, which establishes SAML
+      as the member identity mechanism. https://www.propertymark.co.uk/members.html returned HTTP
+      401 anonymously. No SAML metadata is published: /saml, /saml/metadata, /sso and
+      /Shibboleth.sso/Metadata all returned HTTP 404.
+    issuesAPICredentials: false
+  learnerPortal:
+    scheme: Nhost (Hasura GraphQL + Nhost auth) behind AWS API Gateway
+    evidence: >-
+      The Propertymark Learning Learner Portal at https://learnerportal.propertymark.co.uk/ is a
+      React SPA. Its bundle /static/js/main.8a63e2a6.js (HTTP 200, 1,329,208 bytes) hardcodes
+      backendUrl "https://av5682yc2c.execute-api.eu-west-2.amazonaws.com/prod" and carries the
+      Nhost auth state machine plus Apollo/Hasura GraphQL client code, with paths /v1/,
+      /v1/auth/signin/email-password, /v1/auth/resendverificationemail,
+      /v1/storage/files/presignedurl and /v1/surpass/sso. It also references
+      https://pmqscheduling.propertymark.co.uk (and a -dev sibling) and
+      https://practicetests.propertymark.co.uk.
+    probeResult: >-
+      Anonymous GETs to /prod/, /prod/v1/, /prod/v1/version and /prod/v1/graphql on the API
+      Gateway host all returned HTTP 403 with the JSON body {"message":"Missing Authentication
+      Token"}. https://practicetests.propertymark.co.uk/ returned HTTP 403 AccessDenied (S3).
+      This is a private application backend for enrolled learners, not a published API - no
+      documentation, no terms, no versioning policy, no contract - so it is deliberately NOT
+      listed in apis.yml.
+  authenticationConclusion: >-
+    Propertymark authenticates MEMBERS and LEARNERS. It authenticates no developers, because it
+    has no developers.
+
+surfaces:
+  openapi:
+    exists: false
+    detail: >-
+      No OpenAPI, Swagger, RAML, WSDL or OData $metadata document exists on any resolving
+      Propertymark host. /openapi.json, /swagger.json, /swagger/v1/swagger.json, /api-docs,
+      /swagger and /swagger-ui all returned HTTP 404.
+  asyncapi:
+    exists: false
+  webhooks:
+    exists: false
+    detail: No webhook, callback or event-subscription mechanism is documented anywhere.
+  events:
+    exists: false
+  graphql:
+    exists: false
+    detail: >-
+      https://www.propertymark.co.uk/graphql returned HTTP 404. Hasura GraphQL runs inside the
+      learner portal's private backend but is not exposed, documented or public - it returns
+      HTTP 403 Missing Authentication Token.
+  sdks:
+    exists: false
+    detail: >-
+      No Propertymark-published client library was found. https://github.com/propertymark and
+      https://api.github.com/orgs/propertymark both returned HTTP 404 - Propertymark has no GitHub
+      organisation.
+  postman:
+    exists: false
+  cli:
+    exists: false
+  statusPage:
+    exists: false
+  llmsTxt:
+    exists: false
+    detail: https://www.propertymark.co.uk/llms.txt returned HTTP 404 (68 bytes).
+  undocumentedInternalSurface:
+    host: www.propertymark.co.uk
+    endpoint: https://www.propertymark.co.uk/page-types/find_an_expert/getSearchResultForMap/
+    discovery: >-
+      Found by reading the Find an Expert page's own script,
+      /assets/js/specific/find-an-expert/_8bb4e9cc.find-an-expert.min.js (HTTP 200, 3,660 bytes),
+      which jQuery-ajaxes this path with {activatedMap: true}.
+    probeResult: >-
+      Anonymous GET returned HTTP 200, application/json;charset=utf-8, 193,017 bytes. The payload
+      is {"pageLink": "", "result": [...]} carrying 200 member-branch records (the endpoint caps
+      the page), each with LATITUDE, LONGITUDE, TRADING_NAME, LEGAL_NAME, PARENT_ORGANISATION,
+      PARENT_ORGANISATION_LEGAL_NAME, IS_PARENT_ORGANISATION, LINE_1/2/3, TOWN, COUNTY, POSTCODE,
+      COUNTRY, COUNTRY_ID, GB_AUTHORITIES, LOCATION, SLUG, MAIN_IMAGE, PROPERTY_BADGE[],
+      COMPANY_SERVICE[], ID, TYPE ("crm_organisation") and SCORE. 184 of the 200 records carry
+      COUNTRY "Great Britain".
+    whyNotListedAsAnAPI: >-
+      It is a Preside CMS page-type AJAX handler, not a published API. There is no documentation,
+      no terms of use, no versioning, no authentication, no rate limit statement, no contract and
+      no stable name - the URL is an implementation detail of one web page and the asset hash in
+      the calling script changes on rebuild. Listing it would imply a developer surface that
+      Propertymark has not published. Recorded here for the record only, consistent with the
+      treatment of the equivalent Umbraco CMS internals at RICS.
+    counterProbe: >-
+      The same path under a different prefix,
+      https://www.propertymark.co.uk/find-an-expert/page-types/find_an_expert/getSearchResultForMap/,
+      returned HTTP 404, confirming it is a site-root handler rather than a routed API namespace.
+      https://www.propertymark.co.uk/page-types/site_search/resultSection/ likewise returned HTTP
+      200 but with text/html, the site's search-results partial - the same CMS pattern.
+
+marketSeam:
+  observation: >-
+    Propertymark is the clearest confirmation of the UK seam in this study. There is no MLS, no
+    cooperative listing pool and no shared data standard for the market this body governs.
+    Residential listings reach consumers through the Rightmove and Zoopla portal duopoly, and they
+    get there through agency CRM software - and that entire layer appears inside Propertymark not
+    as an integration programme but as a marketing directory. Of the 42 Industry Suppliers listed,
+    the CRM and portal layer named in the market seam is present in full: Reapit, Street, MRI
+    Software, Dezrez, AgentOS, Loftyworks, Prospector Pro, Coadjute and Rightmove itself, alongside
+    lettings and compliance vendors (Goodlord, Vouch, Canopy, flatfair, Hammock, LettsPay, TDS,
+    The Lettings Hub, Inventory Base, Inventory Hive) and PropTech entrants (PropAlt, Propoly,
+    PropCall, Hipla, HelpTheMove, Lightwork AI, Homebox, Geocale).
+  inversionOfTheUSPattern: >-
+    In the United States a mandated machine-readable contract (RESO) exists and is unreachable
+    without an MLS agreement. In the United Kingdom there is no mandate and no contract, but the
+    rulebook that does exist is a free anonymous download and the government publishes the actual
+    property data openly. Propertymark sits precisely at that inversion: maximum openness of
+    RULES, zero openness of DATA, and no machine-readable layer at all.
+  wherePropertymarkSits: >-
+    Accreditation and consumer protection. It certifies that an agent is compliant, holds client
+    money safely and can be complained about - not that a listing is well-formed. The nearest
+    analogue to a RESO certification directory is Find an Expert, which certifies FIRMS.
+
+adjacentButNotPropertymark:
+  openPropertyDataAssociation:
+    name: Open Property Data Association (OPDA) / Property Data Trust Framework (PDTF)
+    url: https://openpropdata.org.uk/
+    sourceCode: https://github.com/Property-Data-Trust-Framework
+    relationship: >-
+      OPDA is a separate, independent UK industry body that publishes the Property Data Trust
+      Framework - the closest thing the UK has to a machine-readable property data standard, with
+      a common data dictionary and a schema-and-governance toolkit published openly on GitHub. It
+      is NOT a Propertymark artifact. No PDTF or OPDA reference was found on propertymark.co.uk,
+      and Propertymark's site search returned no matching result for "Property Data Trust". OPDA
+      should be profiled as its own provider; nothing about it is attributed to Propertymark here.
+  ukOpenDataLayer:
+    detail: >-
+      HM Land Registry (Price Paid Data and ownership data under the Open Government Licence) and
+      Ordnance Survey (addressing and mapping, UPRN/TOID) are the genuine open UK property data
+      APIs. Propertymark reports ON Land Registry policy in its news pages but publishes none of
+      the data and operates none of the endpoints.
+  vendorAttributionWarning: >-
+    Several Industry Supplier pages surface in a Propertymark site search for "API" (PropAlt,
+    Inventory Base). Those are the vendors' own APIs described on a Propertymark marketing page.
+    They are not Propertymark APIs and must not be attributed to Propertymark.
+
+probes:
+  date: '2026-07-26'
+  note: >-
+    All probes anonymous, with a full desktop browser user-agent. www.propertymark.co.uk is a
+    Preside CMS site (built by Pixl8) fronted by Cloudflare, and it serves genuine, differentiated
+    status codes and bodies - unlike the Imperva-fronted rics.org - so every negative below is
+    trustworthy.
+  results:
+    - url: https://propertymark.co.uk/
+      status: 200
+      note: redirects to https://www.propertymark.co.uk/ (77,449 bytes)
+    - url: https://www.propertymark.co.uk/
+      status: 200
+    - url: https://developer.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://developers.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://api.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://data.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://standards.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://my.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://portal.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://members.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://login.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://identity.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://sso.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://auth.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://idp.propertymark.co.uk/
+      status: 000
+      note: DNS does not resolve
+    - url: https://docs.propertymark.co.uk/
+      status: 403
+      note: 263-byte S3 AccessDenied XML behind CloudFront/Cloudflare - a locked asset bucket, not documentation
+    - url: https://learnerportal.propertymark.co.uk/
+      status: 200
+      note: React SPA shell, 349 bytes gzipped - Propertymark Learning Learner Portal
+    - url: https://learnerportal.propertymark.co.uk/static/js/main.8a63e2a6.js
+      status: 200
+      note: 1,329,208 bytes - source of the Nhost/Hasura/API Gateway backend configuration
+    - url: https://av5682yc2c.execute-api.eu-west-2.amazonaws.com/prod/
+      status: 403
+      note: '{"message":"Missing Authentication Token"} - private learner-portal backend'
+    - url: https://av5682yc2c.execute-api.eu-west-2.amazonaws.com/prod/v1/graphql
+      status: 403
+      note: '{"message":"Missing Authentication Token"}'
+    - url: https://pmqscheduling.propertymark.co.uk/
+      status: 200
+      note: SPA shell, 343 bytes - Propertymark Qualifications scheduling app
+    - url: https://practicetests.propertymark.co.uk/
+      status: 403
+      note: S3 AccessDenied XML
+    - url: https://jobs.propertymark.co.uk/
+      status: 200
+      note: Propertymark job board
+    - url: https://www.propertymark.co.uk/openapi.json
+      status: 404
+      note: 68 bytes - genuine 404, not a WAF challenge
+    - url: https://www.propertymark.co.uk/swagger.json
+      status: 404
+      note: 68 bytes
+    - url: https://www.propertymark.co.uk/swagger/v1/swagger.json
+      status: 404
+    - url: https://www.propertymark.co.uk/api-docs
+      status: 404
+    - url: https://www.propertymark.co.uk/api
+      status: 404
+    - url: https://www.propertymark.co.uk/api/v1
+      status: 404
+    - url: https://www.propertymark.co.uk/apis
+      status: 404
+    - url: https://www.propertymark.co.uk/developers
+      status: 404
+    - url: https://www.propertymark.co.uk/developer
+      status: 404
+    - url: https://www.propertymark.co.uk/docs
+      status: 404
+    - url: https://www.propertymark.co.uk/rest
+      status: 404
+    - url: https://www.propertymark.co.uk/graphql
+      status: 404
+    - url: https://www.propertymark.co.uk/swagger
+      status: 404
+    - url: https://www.propertymark.co.uk/swagger-ui
+      status: 404
+    - url: https://www.propertymark.co.uk/preside/api
+      status: 404
+    - url: https://www.propertymark.co.uk/$metadata
+      status: 404
+      note: no OData metadata document
+    - url: https://www.propertymark.co.uk/odata
+      status: 404
+      note: no OData service
+    - url: https://www.propertymark.co.uk/llms.txt
+      status: 404
+    - url: https://www.propertymark.co.uk/.well-known/openid-configuration
+      status: 404
+      note: site 404 page, not a discovery document
+    - url: https://www.propertymark.co.uk/.well-known/security.txt
+      status: 200
+      note: 167 bytes, points at https://pixl8.com/en/vulnerability-disclosure-policy.html, expires 2027-07-20
+    - url: https://www.propertymark.co.uk/robots.txt
+      status: 200
+      note: 209 bytes, no developer paths disallowed
+    - url: https://www.propertymark.co.uk/sitemap.xml
+      status: 200
+      note: 56,645 bytes, 261 URLs - no API, developer or data page among them
+    - url: https://www.propertymark.co.uk/saml
+      status: 404
+    - url: https://www.propertymark.co.uk/saml/metadata
+      status: 404
+    - url: https://www.propertymark.co.uk/sso
+      status: 404
+    - url: https://www.propertymark.co.uk/Shibboleth.sso/Metadata
+      status: 404
+    - url: https://www.propertymark.co.uk/samlssobadrequest.html
+      status: 200
+      note: published SAML SSO error page - evidence the member area is SAML-gated
+    - url: https://www.propertymark.co.uk/members.html
+      status: 401
+      note: member area requires authentication
+    - url: https://www.propertymark.co.uk/login.html
+      status: 200
+    - url: https://www.propertymark.co.uk/find-an-expert.html
+      status: 200
+      note: 86,595 bytes - public member directory, Google Maps JS, no documented API
+    - url: https://www.propertymark.co.uk/page-types/find_an_expert/getSearchResultForMap/
+      status: 200
+      note: 193,017 bytes application/json - UNDOCUMENTED CMS internal, 200 member-branch records
+    - url: https://www.propertymark.co.uk/find-an-expert/page-types/find_an_expert/getSearchResultForMap/
+      status: 404
+      note: counter-probe confirming it is a site-root CMS handler, not an API namespace
+    - url: https://www.propertymark.co.uk/page-types/site_search/resultSection/
+      status: 200
+      note: text/html search partial - same Preside CMS pattern
+    - url: https://www.propertymark.co.uk/search.html?searchQuery=RESO
+      status: 200
+      note: 'result counter reads "result: 0 of 0" - no RESO reference anywhere on the site'
+    - url: https://www.propertymark.co.uk/search.html?searchQuery=OData
+      status: 200
+      note: 'result counter reads "result: 0 of 0"'
+    - url: https://www.propertymark.co.uk/search.html?searchQuery=API
+      status: 200
+      note: '"results: 9 of 9" - all unrelated (Land Registry news, supplier marketing pages)'
+    - url: https://www.propertymark.co.uk/professional-standards/rules.html
+      status: 200
+      note: 75,089 bytes - rules landing page
+    - url: https://www.propertymark.co.uk/asset/1B740FBB-8CC0-4ED4-8A5BD9B5D006D765/
+      status: 200
+      note: >-
+        redirects to /static/.../propertymark-conduct-and-membership-rules.pdf - application/pdf,
+        672,154 bytes, PDF 1.7, 37 pages, FREE and anonymous
+    - url: https://www.propertymark.co.uk/asset/CD230B24-CA41-4B08-AFB1A93934508B8C/
+      status: 200
+      note: Complaint-form.pdf, application/pdf, 623,843 bytes, free and anonymous
+    - url: https://www.propertymark.co.uk/membership/industry-suppliers.html
+      status: 200
+      note: 168,205 bytes - 42 supplier pages linked
+    - url: https://www.propertymark.co.uk/advantage/connect.html
+      status: 200
+      note: source of the verbatim REACH / Second Century Ventures / NAR statement
+    - url: https://www.propertymark.co.uk/membership/join.html
+      status: 200
+    - url: https://www.propertymark.co.uk/pmq.html
+      status: 200
+    - url: https://github.com/propertymark
+      status: 404
+      note: no Propertymark GitHub organisation
+    - url: https://api.github.com/orgs/propertymark
+      status: 404
+    - url: https://www.reso.org/certificates/
+      status: 200
+      note: 51,430 bytes - zero occurrences of "Propertymark" or "United Kingdom"
+
+harvestedArtifacts:
+  directory: none
+  fetchedOn: '2026-07-26'
+  count: 0
+  reason: >-
+    No machine-readable contract of any kind was found to harvest. There is no OpenAPI document,
+    no AsyncAPI document, no OData $metadata, no JSON Schema, no XSD, no Postman collection and no
+    OIDC discovery document on any resolving Propertymark host. The openapi/ directory is
+    therefore deliberately omitted rather than filled with anything derived or invented.
+  notHarvested:
+    - what: Propertymark Conduct and Membership Rules PDF
+      reason: >-
+        Real and freely downloadable (HTTP 200, 672,154 bytes) but a 37-page PDF, not a
+        machine-readable contract. Linked from apis.yml common[] instead of stored.
+    - what: Find an Expert member directory JSON (193,017 bytes, 200 records)
+      reason: >-
+        A real anonymous HTTP 200 response, but the output of an undocumented Preside CMS page
+        handler with no contract, no terms and no versioning. Storing it would present an
+        implementation detail as a published artifact. Its shape is recorded in
+        surfaces.undocumentedInternalSurface instead.
+    - what: Learner portal Nhost/Hasura GraphQL schema
+      reason: >-
+        Private application backend; every anonymous probe returned HTTP 403 "Missing
+        Authentication Token". No introspection was attempted and no credentials were used.
+    - what: Property Data Trust Framework schemas
+      reason: >-
+        Real and open, but they belong to the Open Property Data Association, a separate body.
+        Attributing them to Propertymark would be false.
+
+sources:
+  - url: https://www.propertymark.co.uk/about-us.html
+    type: About
+    note: Source of the 2017 NAEA/ARLA/ICBA/NAVA merger history and the "over 19,000 members" figure.
+  - url: https://www.propertymark.co.uk/professional-standards/rules.html
+    type: Standards
+    note: Lists member obligations and links the free Conduct and Membership Rules PDF.
+  - url: https://www.propertymark.co.uk/find-an-expert.html
+    type: Directory
+    note: Public accredited-member directory; the de facto certification directory for UK agents.
+  - url: https://www.propertymark.co.uk/membership/industry-suppliers.html
+    type: Partners
+    note: 42 Industry Suppliers - the CRM/portal layer present as a marketing directory, not an integration programme.
+  - url: https://www.propertymark.co.uk/advantage/connect.html
+    type: Documentation
+    note: Verbatim source of the REACH / Second Century Ventures / National Association of REALTORS backing statement.
+  - url: https://learnerportal.propertymark.co.uk/static/js/main.8a63e2a6.js
+    type: SourceCode
+    note: Client bundle revealing the Nhost/Hasura/AWS API Gateway learner-portal backend.
+  - url: https://www.propertymark.co.uk/sitemap.xml
+    type: Sitemap
+    note: 261 URLs, none of them developer-facing - corroborates the absence of an API surface.
+  - url: https://www.reso.org/certificates/
+    type: Certification
+    note: RESO certification directory; no Propertymark or United Kingdom entry.
+
+conclusion: >-
+  Propertymark is the study's cleanest example of an industry body with genuinely NO API surface,
+  and it is valuable precisely because the negatives are trustworthy: the site returns honest 404s
+  rather than WAF challenges, so every absence recorded here is a measurement rather than a guess.
+  Certification and reachability are held apart here in an unusual way - Propertymark certifies
+  agents rather than data, publishes its certification criteria as a free anonymous PDF download,
+  and exposes the resulting certification directory only through an undocumented CMS endpoint that
+  it has never held out as an API. RESO is absent, not unreachable: no Web API certification, no
+  Data Dictionary version, no $metadata, no UPI, no directory listing, and zero site-search hits
+  for either "RESO" or "OData", because the United Kingdom has no MLS for RESO to standardise. The
+  one thread back to the RESO world is financial rather than technical - NAR's Second Century
+  Ventures backs Propertymark's Connect referral platform through REACH, while NAR's standards arm
+  has no presence in this market at all. A developer wanting UK property data must go to HM Land
+  Registry and Ordnance Survey; a developer wanting Propertymark data has nothing published to
+  sign, apply for, or join.
