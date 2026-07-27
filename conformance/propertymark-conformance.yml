@@ -1,0 +1,86 @@
+generated: '2026-07-26'
+method: searched
+source: >-
+  live anonymous probes of www.propertymark.co.uk on 2026-07-26 plus Propertymark's own site
+  search; see review.yml probes[] for the full result table
+scope: >-
+  Propertymark publishes no API, so almost every cross-cutting API standard below is asserted
+  false as a MEASURED ABSENCE rather than an unknown. The one standard Propertymark genuinely
+  conforms to is RFC 9116 (security.txt). Recorded so the negatives are auditable.
+standards:
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: >-
+    https://www.propertymark.co.uk/.well-known/security.txt returns HTTP 200 with Contact, Policy
+    and Expires fields; saved verbatim at well-known/propertymark-security.txt
+- id: openapi
+  conforms: false
+  evidence: >-
+    /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /swagger/v1/swagger.json,
+    /api-docs, /swagger and /swagger-ui all return HTTP 404 on www.propertymark.co.uk;
+    api.propertymark.co.uk does not resolve (curl exit 000)
+- id: asyncapi
+  conforms: false
+  evidence: no event, streaming or webhook surface is documented anywhere on the estate
+- id: graphql
+  conforms: false
+  evidence: >-
+    https://www.propertymark.co.uk/graphql returns HTTP 404 (301 to the trailing-slash form, then
+    the site 404 page). Hasura GraphQL runs inside the Learner Portal's private AWS API Gateway
+    backend and returns HTTP 403 "Missing Authentication Token" anonymously - private, not public
+- id: odata
+  conforms: false
+  evidence: >-
+    /$metadata and /odata both return HTTP 404; Propertymark's own site search returns
+    "result: 0 of 0" for the query OData
+- id: reso-web-api
+  conforms: false
+  evidence: >-
+    no RESO Web API endpoint exists; the United Kingdom has no MLS, so there is no listing-data
+    certification layer. Site search returns "result: 0 of 0" for RESO, and
+    https://www.reso.org/certificates/ contains zero occurrences of "Propertymark"
+- id: reso-data-dictionary
+  conforms: false
+  evidence: no RESO Data Dictionary version (1.7, 2.0, 2.1) is referenced anywhere on the estate
+- id: oauth2
+  conforms: false
+  evidence: >-
+    no public API and therefore no OAuth 2 client registration, no authorization server and no
+    scopes; /.well-known/oauth-authorization-server returns HTTP 404
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns the site's HTML 404 page, not a discovery document
+- id: saml2
+  conforms: partial
+  evidence: >-
+    the member area is SAML-gated - https://www.propertymark.co.uk/samlssobadrequest.html is a
+    published SAML SSO error page (HTTP 200) and /members.html returns HTTP 401 - but no SAML
+    metadata is published (/saml, /saml/metadata, /sso and /Shibboleth.sso/Metadata all 404) and
+    no developer credentials are issued
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no API responses to carry application/problem+json
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no API and no published deprecation or versioning policy
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns HTTP 404
+- id: llms-txt
+  conforms: false
+  evidence: https://www.propertymark.co.uk/llms.txt returns HTTP 404 (68 bytes, a genuine 404)
+- id: sitemaps-xml
+  conforms: true
+  evidence: https://www.propertymark.co.uk/sitemap.xml returns HTTP 200, 261 URLs, none developer-facing
+- id: robots-txt
+  conforms: true
+  evidence: https://www.propertymark.co.uk/robots.txt returns HTTP 200, 209 bytes, no developer paths disallowed
+compliance_program_published: false
+compliance_note: >-
+  No SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP or CSA STAR claim is published on any Propertymark
+  property, and no trust center exists (probe-security-programs.py found none). Propertymark's
+  compliance surface is REGULATORY rather than infosec - government-approved Client Money
+  Protection, Money Laundering Regulations, ICO registration, independent redress scheme
+  membership and Professional Indemnity Insurance, all of which it requires of its members rather
+  than certifying about itself. No Compliance pointer is emitted, because there is no published
+  certification program to point at.

@@ -1,0 +1,52 @@
+generated: '2026-07-26'
+method: searched
+source: live anonymous probes of the /.well-known/ surface on every resolving Propertymark host
+note: >-
+  Only www.propertymark.co.uk resolves as a candidate API host - api., data., developer.,
+  developers. and standards.propertymark.co.uk all fail DNS resolution, so there is no second
+  host with a /.well-known/ surface to probe. The one document Propertymark publishes is
+  security.txt, and it delegates both Contact and Policy to Pixl8, the agency that builds and
+  operates the Preside CMS site.
+hosts:
+- host: https://www.propertymark.co.uk
+  documents:
+  - path: /.well-known/security.txt
+    standard: RFC 9116
+    status: 200
+    file: propertymark-security.txt
+    note: 167 bytes; Contact and Policy both point at the Pixl8 vulnerability disclosure policy; Expires 2027-07-20
+  - path: /.well-known/openid-configuration
+    standard: OpenID Connect Discovery 1.0
+    status: 404
+    note: the site's real 63KB HTML 404 page, not a discovery document
+  - path: /.well-known/oauth-authorization-server
+    standard: RFC 8414
+    status: 404
+    note: 301 to the trailing-slash form, which returns the site's HTML 404 page
+  - path: /.well-known/api-catalog
+    standard: RFC 9727
+    status: 404
+    note: 301 to the trailing-slash form, which returns the site's HTML 404 page
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/change-password
+    standard: change-password well-known URI
+    status: 404
+    note: 301 to the trailing-slash form, which returns the site's HTML 404 page
+  - path: /.well-known/dnt-policy.txt
+    status: 404
+- host: https://learnerportal.propertymark.co.uk
+  documents:
+  - path: /.well-known/*
+    status: 200
+    note: >-
+      NOT a real hit. The Learner Portal is a React single-page app whose server returns the same
+      gzipped SPA shell for every unmatched path, so /openapi.json, /llms.txt and any
+      /.well-known/ path all return HTTP 200 with the index bundle. Verified by fetching
+      /openapi.json and /llms.txt and finding identical gzipped HTML, not JSON or text. No
+      well-known document is actually published here.
+- host: https://api.propertymark.co.uk
+  documents:
+  - path: /.well-known/security.txt
+    status: 000
+    note: DNS does not resolve

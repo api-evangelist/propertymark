@@ -1,0 +1,59 @@
+# Propertymark
+
+> Propertymark is the United Kingdom's largest professional body for property agents, formed in 2017 from the merger of the NAEA, ARLA, ICBA and NAVA, and representing over 19,000 members across residential sales, lettings, commercial property, inventories, auctions and valuation. It accredits AGENTS, not listing data: it publishes the Conduct and Membership Rules, operates a government-approved Client Money Protection scheme, runs Propertymark Qualifications as the sector's specialist awarding organisation, and lobbies government on estate and letting agency regulation.
+
+## Machine-readable status
+
+- Propertymark publishes **no API**: no OpenAPI, no AsyncAPI, no GraphQL, no OData `$metadata`, no webhooks, no SDK, no CLI, no Postman collection and no developer portal. Verified by anonymous probe on 2026-07-26.
+- Every developer-shaped hostname fails DNS resolution: `developer.`, `developers.`, `api.`, `data.`, `standards.`, `my.`, `portal.`, `members.`, `login.`, `identity.`, `sso.`, `auth.` and `idp.propertymark.co.uk`.
+- Every developer-shaped path returns an honest HTTP 404 on `www.propertymark.co.uk`: `/openapi.json`, `/swagger.json`, `/api-docs`, `/api`, `/apis`, `/developers`, `/docs`, `/graphql`, `/rest`, `/$metadata`, `/odata`, `/llms.txt`.
+- RESO is **absent, not unreachable**. The United Kingdom has no MLS, so there is no listing-data certification layer. Propertymark's own site search returns "result: 0 of 0" for both "RESO" and "OData", and the RESO certification directory contains no Propertymark entry.
+- The only machine-readable surface on the estate is an **undocumented** Preside CMS page handler behind the public Find an Expert directory. It is deliberately not listed as an API here — no documentation, no terms, no versioning, no contract. See `review.yml`.
+- Genuinely open UK property data comes from HM Land Registry and Ordnance Survey, not from the agents' professional body.
+
+## Standards and rules (free, anonymous downloads)
+
+- [Professional Standards](https://www.propertymark.co.uk/professional-standards.html): the Propertymark standards landing page.
+- [Rules and obligations](https://www.propertymark.co.uk/professional-standards/rules.html): member obligations and the link to the rulebook.
+- [Conduct and Membership Rules (PDF)](https://www.propertymark.co.uk/asset/1B740FBB-8CC0-4ED4-8A5BD9B5D006D765/): 37 pages, 672,154 bytes, downloads with no login and no EULA.
+- [Client Money Protection scheme rules](https://www.propertymark.co.uk/professional-standards/rules/cmp.html) and [CMP applications](https://www.propertymark.co.uk/professional-standards/cmp-applications.html).
+- [UK regulation](https://www.propertymark.co.uk/professional-standards/uk-regulation.html): Rent Smart Wales, ROPA, the Scottish Letting Agent Register.
+- [Complaints](https://www.propertymark.co.uk/professional-standards/complaints.html) and the disciplinary procedures under `/professional-standards/rules/`.
+
+## Directories and membership
+
+- [Find an Expert](https://www.propertymark.co.uk/find-an-expert.html): the public directory of accredited member agent branches — the de facto certification directory for UK agents. No documented API and no bulk download.
+- [Industry Suppliers](https://www.propertymark.co.uk/membership/industry-suppliers.html): 42 listed supplier companies including Reapit, Street, MRI Software, Dezrez, AgentOS, Coadjute and Rightmove. A paid marketing listing, not an integration programme.
+- [Membership](https://www.propertymark.co.uk/membership.html) and [Join](https://www.propertymark.co.uk/membership/join.html): agent accreditation, not developer signup — it confers no technical access.
+- [Member login](https://www.propertymark.co.uk/login.html): SAML SSO into the Preside CMS member area; `/members.html` returns HTTP 401 anonymously.
+- [Member helpline](https://www.propertymark.co.uk/membership/helpline.html).
+
+## Qualifications and learning
+
+- [Propertymark Qualifications](https://www.propertymark.co.uk/pmq.html): the sector's specialist awarding organisation.
+- [Learner Portal](https://learnerportal.propertymark.co.uk/): a React SPA on an Nhost/Hasura stack behind AWS API Gateway. Its backend returns HTTP 403 "Missing Authentication Token" anonymously — a private application backend for enrolled learners, not a published API.
+
+## News, research and policy
+
+- [News and reports](https://www.propertymark.co.uk/news-reports.html) and [latest news](https://www.propertymark.co.uk/news-reports/latest.html). No RSS or Atom feed is published (`/rss` and `/feed` both 404).
+- [Housing Insight Report](https://www.propertymark.co.uk/news-reports/housing-insight-report.html), [Commercial Outlook](https://www.propertymark.co.uk/news-reports/commercial-outlook.html), [Auctions Barometer](https://www.propertymark.co.uk/news-reports/auctions-barometer.html) — PDF market intelligence, not data endpoints.
+- [Policy and campaigns](https://www.propertymark.co.uk/policy.html) across England, Scotland, Wales, Northern Ireland and the Channel Islands.
+- [Connect, powered by Propertymark](https://www.propertymark.co.uk/advantage/connect.html): the agent-to-agent lead referral platform, "supported by REACH, the growth accelerator programme of Second Century Ventures, a global technology fund backed by the National Association of REALTORS".
+
+## Security and policies
+
+- [security.txt](https://www.propertymark.co.uk/.well-known/security.txt) (RFC 9116) — Contact and Policy both delegate to the [Pixl8 vulnerability disclosure policy](https://pixl8.com/en/vulnerability-disclosure-policy.html); Pixl8 builds and operates the Preside CMS site.
+- [Privacy policy](https://www.propertymark.co.uk/privacy-policy.html) and [cookie policy](https://www.propertymark.co.uk/cookie-policy.html). No website terms-of-service page is published.
+- [Contact](https://www.propertymark.co.uk/contact.html).
+
+## API Evangelist artifacts in this repo
+
+- `apis.yml` — the APIs.json index for Propertymark.
+- `review.yml` — the full API Evangelist review, including every probe URL and status code.
+- `well-known/propertymark-well-known.yml` + `well-known/propertymark-security.txt` — the harvested `/.well-known/` surface.
+- `security/propertymark-domain-security.yml` — probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture.
+- `security/propertymark-vulnerability-disclosure.yml` — the disclosure program found via security.txt.
+- `conformance/propertymark-conformance.yml` — measured conformance (and measured absence) against the cross-cutting standards.
+- `llms/propertymark-llms.txt` — this file.
+
+Generated: 2026-07-26. Method: generated from apis.yml, review.yml and this repo's artifacts, because https://www.propertymark.co.uk/llms.txt returns HTTP 404.

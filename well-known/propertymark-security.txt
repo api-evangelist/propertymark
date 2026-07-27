@@ -1,0 +1,3 @@
+Contact: https://pixl8.com/en/vulnerability-disclosure-policy.html
+Policy: https://pixl8.com/en/vulnerability-disclosure-policy.html
+Expires: 2027-07-20T23:59:00.000Z

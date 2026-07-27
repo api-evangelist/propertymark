@@ -29,7 +29,7 @@ description: >-
   Preside CMS JSON endpoint behind the public Find an Expert member directory - and its member
   area is SAML-gated, returning HTTP 401. Genuinely open UK property data comes from HM Land
   Registry and Ordnance Survey, not from the agents' professional body.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/groq.png
+image: https://www.propertymark.co.uk/static/088fd899-9b36-4cd5-b685175e6c489b92/222x87_highestperformance__4a7c7e45a350/Propertymark-Company-logo.png
 tags:
 - Real Estate
 - United Kingdom
@@ -48,6 +48,30 @@ modified: '2026-07-26'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: VulnerabilityDisclosure
+  url: security/propertymark-vulnerability-disclosure.yml
+- type: Security
+  url: https://pixl8.com/en/vulnerability-disclosure-policy.html
+  name: >-
+    Vulnerability disclosure policy that Propertymark's own security.txt names as both Contact
+    and Policy - operated by Pixl8, the agency that builds and runs the Preside CMS site (HTTP
+    200, 30,258 bytes on 2026-07-26)
+- type: DomainSecurity
+  url: security/propertymark-domain-security.yml
+- type: WellKnown
+  url: well-known/propertymark-well-known.yml
+  name: >-
+    Harvested /.well-known/ surface - security.txt is the only document published; OIDC discovery,
+    RFC 8414 and RFC 9727 api-catalog all return HTTP 404
+- type: Conformance
+  url: conformance/propertymark-conformance.yml
+  name: >-
+    Measured conformance and measured absence across OpenAPI, AsyncAPI, GraphQL, OData, RESO,
+    OAuth2/OIDC, SAML, RFC 9116 and RFC 9727
+- type: LLMsTxt
+  url: llms/propertymark-llms.txt
+  name: >-
+    Generated llms.txt for Propertymark - the provider publishes none (/llms.txt returns HTTP 404)
 - type: Website
   url: https://www.propertymark.co.uk/
 - type: About
@@ -82,7 +106,7 @@ common:
     Dezrez, AgentOS, Coadjute and Rightmove; the only published technology route into Propertymark
 - type: Membership
   url: https://www.propertymark.co.uk/membership.html
-- type: Signup
+- type: SignUp
   url: https://www.propertymark.co.uk/membership/join.html
   name: Join Propertymark - membership application for agents, not a developer signup
 - type: Login
@@ -103,6 +127,18 @@ common:
   name: Propertymark policy and campaigns across England, Scotland, Wales, Northern Ireland and the Channel Islands
 - type: NewsAndReports
   url: https://www.propertymark.co.uk/news-reports.html
+- type: Blog
+  url: https://www.propertymark.co.uk/news-reports/latest.html
+  name: >-
+    Latest news - Propertymark's running commentary and market intelligence. No RSS or Atom feed
+    is published; /rss and /feed both resolve to the site's HTTP 404 page
+- type: Podcast
+  url: https://www.propertymark.co.uk/news-reports/podcast.html
+- type: Support
+  url: https://www.propertymark.co.uk/membership/helpline.html
+  name: >-
+    Propertymark member helpline - the only support channel published; there is no developer
+    support, no forum and no ticketing surface
 - type: Referrals
   url: https://www.propertymark.co.uk/advantage/connect.html
   name: >-
@@ -122,10 +158,18 @@ common:
   name: 261 URLs, HTTP 200
 - type: Robots
   url: https://www.propertymark.co.uk/robots.txt
-- type: Privacy
+- type: PrivacyPolicy
   url: https://www.propertymark.co.uk/privacy-policy.html
+- type: CookiePolicy
+  url: https://www.propertymark.co.uk/cookie-policy.html
+  name: >-
+    Cookie policy. Propertymark publishes no website terms-of-service page - /terms.html,
+    /terms-and-conditions.html, /terms-of-use.html and /terms-conditions.html all return HTTP 404
 - type: Contact
   url: https://www.propertymark.co.uk/contact.html
+  name: Contact Propertymark; the site's obfuscated footer address is help@propertymark.co.uk
+- type: YouTube
+  url: https://www.youtube.com/channel/UCwPUqKRQZ7ezBwbc0yrOjxQ
 - type: LinkedIn
   url: https://www.linkedin.com/company/propertymark/
 - type: Facebook
