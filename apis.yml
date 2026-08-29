@@ -29,6 +29,17 @@ description: >-
   Preside CMS JSON endpoint behind the public Find an Expert member directory - and its member
   area is SAML-gated, returning HTTP 401. Genuinely open UK property data comes from HM Land
   Registry and Ordnance Survey, not from the agents' professional body.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.propertymark.co.uk/static/088fd899-9b36-4cd5-b685175e6c489b92/222x87_highestperformance__4a7c7e45a350/Propertymark-Company-logo.png
 tags:
 - Real-Estate
