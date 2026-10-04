@@ -54,7 +54,7 @@ accessModel:
   method: derived
 image: https://www.propertymark.co.uk/static/088fd899-9b36-4cd5-b685175e6c489b92/222x87_highestperformance__4a7c7e45a350/Propertymark-Company-logo.png
 tags:
-- Real-Estate
+- Real Estate
 - United Kingdom
 - Industry Body
 - Estate Agents
@@ -79,6 +79,7 @@ tags_raw:
 - Commercial Real Estate
 - Valuation
 - PropTech
+- Real-Estate
 created: '2026-07-26'
 modified: '2026-07-26'
 specificationVersion: '0.23'
